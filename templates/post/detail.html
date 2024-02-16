@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Post Detail</h2>
+    <div>
+        <h3>{{ post.content }}</h3>
+        <p>Author: {{ post.user.username }}</p>
+        <p>Created at: {{ post.created_at }}</p>
+        <p>Last updated: {{ post.updated_at }}</p>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="Post Image">
+        {% endif %}
+        <!-- Display post image if available -->
+        <p>Likes: {{ post.likes.count }}</p>
+        <!-- Display the number of likes -->
+        <a href="{% url 'like_post' post.id %}">Like</a>
+        <!-- Link to like the post (you need to implement this URL and view) -->
+        <h4>Comments</h4>
+        {% for comment in post.comment_set.all %}
+            <div>
+                <p>{{ comment.content }}</p>
+                <p>Author: {{ comment.user.username }}</p>
+                <p>Created at: {{ comment.created_at }}</p>
+                <p>Last updated: {{ comment.updated_at }}</p>
+                <p>Likes: {{ comment.likes.count }}</p>
+                <!-- Display the number of likes for each comment -->
+                <a href="{% url 'like_comment' comment.id %}">Like</a>
+                <!-- Link to like the comment (you need to implement this URL and view) -->
+            </div>
+        {% endfor %}
+        <!-- Add other post details as needed -->
+    </div>
+{% endblock %}

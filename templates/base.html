@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Snack With Me{% endblock %}</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Add your custom styles or additional CSS links here -->
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        background-color: #1a202c; /* Navy */
+        color: #a0aec0; /* Light blue font */
+    }
+    
+    main {
+        flex: 1;
+    }
+    
+    footer {
+        background-color: #48bb78;
+        padding: 10px;
+        text-align: center;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+      
+    a {
+        color: #48bb78; /* Neon green link color */
+    }
+    </style>
+</head>
+<body class="font-sans">
+
+    <header class="bg-secondary p-4">
+        <nav class="flex justify-between items-center">
+            <div class="logo text-2xl font-bold text-white">Snack with Stephie G</div>
+            <ul class="flex space-x-4">
+                <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
+                <li><a href="{% url 'all_posts' %}" class="hover:underline">All Posts</a></li>
+                <li>
+                  {% if request.user.is_authenticated %}
+                      <a href="{% url 'profile' %}" class="hover:underline">Profile</a>
+                  {% else %}
+                      <!-- Handle the case when the user is not authenticated -->
+                      <!-- You may choose to provide a login link or take a different action -->
+                      <span class="text-gray-500">Profile</span>
+                  {% endif %}
+              </li>
+                <li><a href="{% url 'create_post' %}" class="hover:underline">Create Post</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="container mx-auto mt-8 p-4">
+      {% block content %}
+          <h1 class="text-4xl font-bold mb-4">Welcome to Stephie's Snacks Community!</h1>
+          <p class="text-lg">
+              At Stephie's Snacks, we're more than just a community – we're a family of snack enthusiasts!
+              Join us on a delightful journey through the world of flavors, where tasty treats and vibrant conversations
+              come together. Whether you're a seasoned snacker or exploring new bites, you're in for a treat!
+          </p>
+          <p class="text-lg">
+              Share your favorite snack discoveries, exchange recipes, and connect with snack lovers from around the globe.
+              From crunchy chips to sweet indulgences, Stephie's Snacks Community is where snack dreams come true.
+              Ready to embark on a delicious adventure? Dive in and snack with us!
+          </p>
+      {% endblock %}
+  </main>
+  
+
+    <footer class="bg-secondary p-4 text-center text-white">
+        <p>&copy; 2024 Stephie G. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
