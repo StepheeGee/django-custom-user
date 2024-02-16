@@ -1,8 +1,111 @@
+# Django Custom User Project
 
+## Stephie G's Snacks - Lab 29
 
-### Step 1: Set Up Django Project
+2.16.24
+
+## Table of Contents
+
+- [About](#about)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Project Setup](#project-setup)
+  - [Custom User App](#custom-user-app)
+  - [Tailwind CSS Setup](#tailwind-css-setup)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+
+## About
+
+The Django Custom User Project is a web application built with Django that extends the default user model to include additional fields and functionalities. It also features user profiles, posts, and a snack community platform.
+
+## Features
+
+- **Custom User Model:** Utilizes a custom user model to accommodate additional user information.
+- **User Profiles:** Users can create profiles with details such as bio, location, and birth date.
+- **Posts and Comments:** Users can create posts, comment on them, and like posts.
+- **Snack Community:** A platform for snack enthusiasts to share their favorite snack discoveries, exchange recipes, and connect with others worldwide.
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Python (3.12.1 recommended)
+- Django (5.0.2 recommended)
+- Node.js (for Tailwind CSS)
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/your-username/django-custom-user.git
+   ```
+
+2. **Navigate to the project directory:**
+
+   ```bash
+   cd django-custom-user
+   ```
+
+3. **Create a virtual environment:**
+
+   ```bash
+   python -m venv .venv
+   ```
+
+4. **Activate the virtual environment:**
+
+   - **For Unix/Linux:**
+
+     ```bash
+     source .venv/bin/activate
+     ```
+
+   - **For Windows (Command Prompt):**
+
+     ```bash
+     .venv\Scripts\activate
+     ```
+
+5. **Install dependencies:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+6. **Apply database migrations:**
+
+   ```bash
+   python manage.py migrate
+   ```
+
+7. **Create a superuser account (for admin access):**
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+8. **Run the development server:**
+
+   ```bash
+   python manage.py runserver
+   ```
+
+Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access the application.
+
+### Project Setup
+
+#### Step 1: Set Up Django Project
 
 1. **Create a Virtual Environment:**
+
    ```bash
    python -m venv venv
    ```
@@ -32,7 +135,7 @@
    cd custom_user_project
    ```
 
-### Step 2: Create Custom User App
+#### Step 2: Create Custom User App
 
 6. **Create Django App "custom_user":**
    ```bash
@@ -62,7 +165,7 @@
    ]
    ```
 
-### Step 3: Create Custom User Model
+#### Step 3: Create Custom User Model
 
 9. **Define `CustomUser` Model:**
    - Update `custom_user/models.py`:
@@ -84,14 +187,14 @@
      AUTH_USER_MODEL = 'custom_user.CustomUser'
      ```
 
-### Step 4: Install Additional Packages
+#### Step 4: Install Additional Packages
 
 10. **Install Required Packages:**
     ```bash
     pip install django-widget-tweaks
     ```
 
-### Step 5: Set Up Tailwind CSS
+#### Step 5: Set Up Tailwind CSS
 
 11. **Install Tailwind CSS:**
     ```bash
@@ -109,29 +212,35 @@
     - Inside the `static/src` directory, create `input.css` and `output.css`.
     ``` bash
     npx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --watch 
-```
+    ```
 
-make sure you're looking like this in your config.js file
-``` /** @type {import('tailwindcss').Config} */
-module.exports = {
-  // ... other configurations
-  content: [
-    './src/**/*.html',
-    './src/**/*.js',
-    // Add other paths as needed
-  ],
-};
-```
+    Make sure you're looking like this in your config.js file:
 
-### Step 6: Create Templates Directory
+    ```javascript
+    /** @type {import('tailwindcss').Config} */
+    module.exports = {
+      // ... other configurations
+      content: [
+        './src/**/*.html',
+        './src/**/*.js',
+        // Add other paths as needed
+      ],
+    };
+    ```
+
+#### Step 6: Create Templates Directory
 
 14. **Create `templates` Directory:**
     - Inside the project directory, create a `templates` directory.
 
-### Step 7: Django Admin Configuration
+### Custom User App
+
+#### Step 7: Django Admin Configuration
 
 15. **Configure Django Admin:**
-    - Update `custom_user/admin.py`:
+    - Update `custom_user/admin
+
+.py`:
 
       ```python
       # custom_user/admin.py
@@ -141,7 +250,7 @@ module.exports = {
       admin.site.register(CustomUser)
       ```
 
-### Step 8: URLs and Views
+#### Step 8: URLs and Views
 
 16. **Set Up URLs and Views:**
     - Update `custom_user/urls.py`:
@@ -161,12 +270,12 @@ module.exports = {
 
     - Create corresponding views in `custom_user/views.py`.
 
-### Step 9: Django Widget Tweaks in Templates
+#### Step 9: Django Widget Tweaks in Templates
 
 17. **Use Django Widget Tweaks in Templates:**
     - In your templates, load widget tweaks at the beginning and use them as needed.
 
-### Step 10: Run Migrations and Test
+#### Step 10: Run Migrations and Test
 
 18. **Run Migrations:**
     ```bash
@@ -231,7 +340,6 @@ module.exports = {
         template_name = 'registration/signup.html'
         form_class = CustomUserCreationForm
 
-
         success_url = reverse_lazy('login')  # Redirect to login page after successful signup
 
         def form_valid(self, form):
@@ -273,8 +381,18 @@ module.exports = {
     ]
     ```
 
+## Usage
+
+1. Navigate to [http://127.0.0.1:8000/accounts/signup/](http://127.0.0.1:8000/accounts/signup/) to create a new account.
+2. Explore the snack community, create posts, and interact with other users.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions, please [open an issue](https://github.com/StepheeGee/django-custom-user/issues) 
 
 
-Step 8: Django Widget Tweaks in Templates
-Use Django Widget Tweaks in Templates:
-In your templates, load widget tweaks and use them as needed.
+## Acknowledgments
+
+- [Django Documentation](https://docs.djangoproject.com/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs/)
+- [Django Widget Tweaks Documentation](https://django-widget-tweaks.readthedocs.io/)
