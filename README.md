@@ -38,7 +38,6 @@ Make sure you have the following installed:
 
 - Python (3.12.1 recommended)
 - Django (5.0.2 recommended)
-- Node.js (for Tailwind CSS)
 
 ### Installation
 
