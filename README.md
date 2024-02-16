@@ -39,75 +39,17 @@ Make sure you have the following installed:
 - Python (3.12.1 recommended)
 - Django (5.0.2 recommended)
 
-### Installation
 
-1. **Clone the repository:**
+## Setup
 
-   ```bash
-   git clone https://github.com/your-username/django-custom-user.git
-   ```
+This Django project demonstrates the implementation of a custom user model, user authentication, and basic templates with Tailwind CSS styling. Follow the steps below to set up and run the project.
 
-2. **Navigate to the project directory:**
-
-   ```bash
-   cd django-custom-user
-   ```
-
-3. **Create a virtual environment:**
-
-   ```bash
-   python -m venv .venv
-   ```
-
-4. **Activate the virtual environment:**
-
-   - **For Unix/Linux:**
-
-     ```bash
-     source .venv/bin/activate
-     ```
-
-   - **For Windows (Command Prompt):**
-
-     ```bash
-     .venv\Scripts\activate
-     ```
-
-5. **Install dependencies:**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-6. **Apply database migrations:**
-
-   ```bash
-   python manage.py migrate
-   ```
-
-7. **Create a superuser account (for admin access):**
-
-   ```bash
-   python manage.py createsuperuser
-   ```
-
-8. **Run the development server:**
-
-   ```bash
-   python manage.py runserver
-   ```
-
-Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access the application.
-
-### Project Setup
-
-#### Step 1: Set Up Django Project
+### Step 1: Set Up Django Project
 
 1. **Create a Virtual Environment:**
-
-   ```bash
-   python -m venv venv
-   ```
+    ```bash
+    python -m venv venv
+    ```
 
 2. **Activate Virtual Environment:**
    - On Windows:
@@ -120,30 +62,30 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access
      ```
 
 3. **Install Django:**
-   ```bash
-   pip install django
-   ```
+    ```bash
+    pip install django
+    ```
 
 4. **Create Django Project:**
-   ```bash
-   django-admin startproject custom_user_project
-   ```
+    ```bash
+    django-admin startproject [YOUR_PROJECT_NAME]
+    ```
 
 5. **Navigate to Project Directory:**
-   ```bash
-   cd custom_user_project
-   ```
+    ```bash
+    cd [YOUR_PROJECT_NAME]
+    ```
 
-#### Step 2: Create Custom User App
+### Step 2: Create Custom User App
 
 6. **Create Django App "custom_user":**
-   ```bash
-   python manage.py startapp custom_user
-   ```
+    ```bash
+    python manage.py startapp custom_user
+    ```
 
 7. **Inside "custom_user" App:**
-   - Create `urls.py`, `views.py`, `models.py`, `tests.py`, and `apps.py`.
-   - Set up the app in `custom_user/apps.py`:
+    - Create `urls.py`, `views.py`, `models.py`, `tests.py`, and `apps.py`.
+    - Set up the app in `custom_user/apps.py`:
 
      ```python
      # custom_user/apps.py
@@ -156,7 +98,7 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access
 
 8. **Update `INSTALLED_APPS` in `settings.py`:**
    ```python
-   # custom_user_project/settings.py
+   # [YOUR_PROJECT_NAME]/settings.py
    INSTALLED_APPS = [
        # ...
        'custom_user.apps.CustomUserConfig',
@@ -164,36 +106,36 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access
    ]
    ```
 
-#### Step 3: Create Custom User Model
+### Step 3: Create Custom User Model
 
 9. **Define `CustomUser` Model:**
-   - Update `custom_user/models.py`:
+    - Update `custom_user/models.py`:
 
-     ```python
-     # custom_user/models.py
-     from django.contrib.auth.models import AbstractUser
-     from django.db import models
+    ```python
+    # custom_user/models.py
+    from django.contrib.auth.models import AbstractUser
+    from django.db import models
 
-     class CustomUser(AbstractUser):
-         email = models.EmailField(unique=True)
-         # Add any additional fields you need
-     ```
+    class CustomUser(AbstractUser):
+        email = models.EmailField(unique=True)
+        # Add any additional fields you need
+    ```
 
-   - Set `AUTH_USER_MODEL` in `settings.py`:
+    - Set `AUTH_USER_MODEL` in `settings.py`:
 
-     ```python
-     # custom_user_project/settings.py
-     AUTH_USER_MODEL = 'custom_user.CustomUser'
-     ```
+    ```python
+    # [YOUR_PROJECT_NAME]/settings.py
+    AUTH_USER_MODEL = 'custom_user.CustomUser'
+    ```
 
-#### Step 4: Install Additional Packages
+### Step 4: Install Additional Packages
 
 10. **Install Required Packages:**
     ```bash
     pip install django-widget-tweaks
     ```
 
-#### Step 5: Set Up Tailwind CSS
+### Step 5: Set Up Tailwind CSS
 
 11. **Install Tailwind CSS:**
     ```bash
@@ -209,14 +151,14 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access
 
 13. **Create CSS Files:**
     - Inside the `static/src` directory, create `input.css` and `output.css`.
-    ``` bash
+    ```bash
     npx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --watch 
     ```
 
-    Make sure you're looking like this in your config.js file:
+    Ensure your `tailwind.config.js` looks like this:
 
-    ```javascript
-    /** @type {import('tailwindcss').Config} */
+    ```js
+    // tailwind.config.js
     module.exports = {
       // ... other configurations
       content: [
@@ -227,19 +169,15 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access
     };
     ```
 
-#### Step 6: Create Templates Directory
+### Step 6: Create Templates Directory
 
 14. **Create `templates` Directory:**
     - Inside the project directory, create a `templates` directory.
 
-### Custom User App
-
-#### Step 7: Django Admin Configuration
+## Step 7: Django Admin Configuration
 
 15. **Configure Django Admin:**
-    - Update `custom_user/admin
-
-.py`:
+    - Update `custom_user/admin.py`:
 
       ```python
       # custom_user/admin.py
@@ -249,7 +187,7 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access
       admin.site.register(CustomUser)
       ```
 
-#### Step 8: URLs and Views
+### Step 8: URLs and Views
 
 16. **Set Up URLs and Views:**
     - Update `custom_user/urls.py`:
@@ -269,12 +207,14 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access
 
     - Create corresponding views in `custom_user/views.py`.
 
-#### Step 9: Django Widget Tweaks in Templates
+### Step 9: Django Widget Tweaks in Templates
 
-17. **Use Django Widget Tweaks in Templates:**
+17. **Use Django Widget
+
+ Tweaks in Templates:**
     - In your templates, load widget tweaks at the beginning and use them as needed.
 
-#### Step 10: Run Migrations and Test
+### Step 10: Run Migrations and Test
 
 18. **Run Migrations:**
     ```bash
@@ -369,7 +309,7 @@ Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser to access
 
 25. **Include these URLs in Your Main `urls.py`:**
     ```python
-    # custom_user_project/urls.py
+    # [YOUR_PROJECT_NAME]/urls.py
     from django.contrib import admin
     from django.urls import path, include
 
