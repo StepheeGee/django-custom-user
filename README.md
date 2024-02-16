@@ -10,13 +10,8 @@
 - [Features](#features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Project Setup](#project-setup)
-  - [Custom User App](#custom-user-app)
-  - [Tailwind CSS Setup](#tailwind-css-setup)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## About
